@@ -1,0 +1,17 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<br><br><br> <h1>Мои знания в программировании</h1>
+<h3>(каждый курс подкреплён практикой)</h3><br><br><br>
+
+    {% for blog in blogs %}
+
+        <a href="{% url 'blog:detail' blog.id %}"> <h4>{{blog.title}}</h4></a>
+        {{blog.date|date:'d M Y'}}<br><br>
+        <p> {{blog.description|safe|truncatechars:200}}</p>
+
+    <br><br><br>
+    {% endfor %}
+
+{% endblock %}

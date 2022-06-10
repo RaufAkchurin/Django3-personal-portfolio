@@ -1,0 +1,22 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<br>
+<H1>Персональное портфолио</H1>
+ <br>
+
+<img src="{%static 'portfolio/Rauf.jpg'  %}" alt="" srcset="" width="450">
+<br><br><br>
+
+{% for object in objects %}
+<h2>{{ object.title }}</h2> <br>
+{{ object.description | safe }}<br><br>
+<img src="{{ object.image.url }}" width = 370> <br>
+    {% if object.url %}
+        <a href="{{ object.url }}" target="_blank" > LInk</a>
+    {% endif %}
+<br><br><br><br><br>
+{% endfor %}
+{% endblock %}
